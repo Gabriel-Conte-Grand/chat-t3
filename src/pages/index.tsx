@@ -51,7 +51,7 @@ export default function IndexPage() {
     setNewMessage('')
     setTimeout(() => {
       scrollToLastMessage()
-    }, 500)
+    }, 1000)
   }
 
   return (
