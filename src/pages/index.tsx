@@ -29,13 +29,18 @@ export default function IndexPage() {
 
   const allMessages = formatDate(data)
   const scrollToLastMessage = () => {
-    const lastChild = chatBoxRef.current?.lastElementChild
-    lastChild?.scrollIntoView({
-      block: 'end',
-      inline: 'end',
-      behavior: 'smooth',
-    })
+    setTimeout(() => {
+      const lastChild = chatBoxRef.current?.lastElementChild
+      lastChild?.scrollIntoView({
+        block: 'end',
+        inline: 'end',
+        behavior: 'smooth',
+      })
+    }, 1000)
   }
+  // if (msg.list.useQuery(undefined, {onSuccess})) {
+  //   scrollToLastMessage()
+  // }
   const createMessage = (input: string) => {
     input = input.trim()
     if (input.length < 1) return
@@ -49,9 +54,7 @@ export default function IndexPage() {
       }
     )
     setNewMessage('')
-    setTimeout(() => {
-      scrollToLastMessage()
-    }, 1500)
+    scrollToLastMessage()
   }
 
   return (
